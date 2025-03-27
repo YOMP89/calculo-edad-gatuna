@@ -17,7 +17,32 @@
         <div class="result" id="result"></div>
         <div class="error" id="error"></div>
     </div>
+    <script>
+        function calculateCatAge() {
+            const humanAge = parseInt(document.getElementById('humanAge').value);
+            const resultDiv = document.getElementById('result');
+            const errorDiv = document.getElementById('error');
+            
+            errorDiv.textContent = '';
+            resultDiv.textContent = '';
+            
+            if (isNaN(humanAge) || humanAge < 0) {
+                errorDiv.textContent = 'Ingrese un número válido mayor o igual a 0';
+                return;
+            }
 
+            let catAge;
+            if (humanAge === 0) {
+                catAge = 0;
+            } else if (humanAge === 1) {
+                catAge = 25;
+            } else {
+                catAge = 25 + (humanAge - 1) * 4;
+            }
+
+            resultDiv.innerHTML = `¡Tu gato tiene <span>${catAge}</span> años gatunos!`;
+        }
+    </script>
 </body>
 </html>
 
